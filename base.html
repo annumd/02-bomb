@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploding Bomb</title>
+    <style>
+        body {
+            background-color: #ffc0cb; /* Baby pink */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        #bomb {
+            font-size: 4rem;
+            cursor: pointer;
+            position: absolute;
+            animation: pop 0.3s ease-in-out;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="bomb">💣</div>
+
+    <script>
+        const bomb = document.getElementById('bomb');
+
+        function getRandomPosition() {
+            const x = Math.random() * (window.innerWidth - 50); // Subtract 50 to avoid overflow
+            const y = Math.random() * (window.innerHeight - 50);
+            return { x, y };
+        }
+
+        function moveBomb() {
+            const explosion = document.createElement('div');
+            explosion.innerHTML = '💥';
+            explosion.style.position = 'absolute';
+            explosion.style.fontSize = '4rem';
+            explosion.style.left = `${bomb.offsetLeft}px`;
+            explosion.style.top = `${bomb.offsetTop}px`;
+            document.body.appendChild(explosion);
+
+            setTimeout(() => {
+                explosion.remove();
+            }, 500); // Remove explosion after 500ms
+
+            const { x, y } = getRandomPosition();
+            bomb.style.left = `${x}px`;
+            bomb.style.top = `${y}px`;
+        }
+
+        bomb.addEventListener('click', moveBomb);
+
+        // Initial random position
+        const { x, y } = getRandomPosition();
+        bomb.style.left = `${x}px`;
+        bomb.style.top = `${y}px`;
+    </script>
+</body>
+</html>
