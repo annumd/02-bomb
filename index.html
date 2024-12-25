@@ -8,6 +8,7 @@
         body {
             background-color: #ffc0cb; /* Baby pink */
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -15,6 +16,7 @@
             overflow: hidden;
             font-family: Arial, sans-serif;
         }
+        
         h1 {
             font-size: 3rem;
             margin: 0;
@@ -22,6 +24,13 @@
             text-transform: uppercase; /* Make text capitalized */
         }
 
+         p {
+            font-size: 1.2rem;
+            margin: 0;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
         #bomb {
             font-size: 4rem;
             cursor: pointer;
@@ -44,6 +53,7 @@
 </head>
 <body>
     <h1>BOMB</h1>
+    <p>(click on the bomb)</p>
     <div id="bomb">💣</div>
 
     <script>
