@@ -30,7 +30,7 @@
             text-align: center;
         }
 
-         p {
+        p {
             font-size: 1.2rem;
             margin: 0;
             margin-top: 0.5rem;
@@ -42,7 +42,7 @@
             text-align: center;
         }
 
-         #scoreboard {
+        #scoreboard {
             font-size: 1.5rem;
             font-weight: bold;
             position: absolute;
@@ -71,7 +71,7 @@
             }
         }
 
-         #safe-zone {
+        #safe-zone {
             position: relative;
             display: flex;
             flex-direction: column;
@@ -83,12 +83,12 @@
     </style>
 </head>
 <body>
-     <div id="safe-zone">
+    <div id="safe-zone">
         <h1>BOMB</h1>
-        <p>(click on the bomb)</p>
+        <p>Click on the bomb to increase your score. Can you beat the leaderboard?</p>
         <div id="bomb">💣</div>
         <div id="scoreboard">Score: 0 | Time Left: 30</div>
-     </div>
+    </div>
 
     <script>
         const bomb = document.getElementById('bomb');
@@ -115,11 +115,11 @@
 
         // Move bomb and update score
         function moveBomb() {
-              if (!timerStarted) {
-            startTimer(); // Start the timer when the bomb is clicked for the first time
-            timerStarted = true; // Set the flag to prevent starting the timer again
-        }
-             if (timeLeft <= 0) return; // Stop interaction after time ends
+            if (!timerStarted) {
+                startTimer(); // Start the timer when the bomb is clicked for the first time
+                timerStarted = true; // Set the flag to prevent starting the timer again
+            }
+            if (timeLeft <= 0) return; // Stop interaction after time ends
             score++;
             updateScoreboard();
 
@@ -151,6 +151,7 @@
                 }
             }, 1000);
         }
+
         bomb.addEventListener('click', moveBomb);
 
         // Initial random position
