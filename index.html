@@ -60,6 +60,7 @@
         const bomb = document.getElementById('bomb');
 
         function getRandomPosition() {
+              const bombSize = 64; // Approx size of the bomb (4rem)
             const x = Math.random() * (window.innerWidth - 50); // Subtract 50 to avoid overflow
             const y = Math.random() * (window.innerHeight - 50);
             return { x, y };
