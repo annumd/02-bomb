@@ -15,6 +15,7 @@
             margin: 0;
             overflow: hidden;
             font-family: Arial, sans-serif;
+            position: relative;
         }
         
         h1 {
@@ -22,6 +23,11 @@
             margin: 0;
             font-family: 'Impact', sans-serif; /* Font for heading */
             text-transform: uppercase; /* Make text capitalized */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -70%); /* Center and slightly adjust upwards */
+            text-align: center;
         }
 
          p {
@@ -29,6 +35,11 @@
             margin: 0;
             margin-top: 0.5rem;
             font-style: italic;
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
         }
         
         #bomb {
@@ -49,18 +60,32 @@
                 transform: scale(1);
             }
         }
+
+         #safe-zone {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 <body>
-    <h1>BOMB</h1>
-    <p>(click on the bomb)</p>
-    <div id="bomb">💣</div>
+     <div id="safe-zone">
+        <h1>BOMB</h1>
+        <p>(click on the bomb)</p>
+        <div id="bomb">💣</div>
+     </div>
 
     <script>
         const bomb = document.getElementById('bomb');
+        const safeZone = document.getElementById('safe-zone');
 
         function getRandomPosition() {
-              const bombSize = 64; // Approx size of the bomb (4rem)
+            const bombSize = 64; // Approx size of the bomb (4rem)
+            const safeZoneRect = safeZone.getBoundingClientRect();
             const x = Math.random() * (window.innerWidth - 50); // Subtract 50 to avoid overflow
             const y = Math.random() * (window.innerHeight - 50);
             return { x, y };
