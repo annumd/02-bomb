@@ -97,6 +97,7 @@
 
         let score = 0;
         let timeLeft = 30; // Timer set to 30 seconds
+        let timerStarted = false; // Flag to check if timer has started
 
         // Update scoreboard
         function updateScoreboard() {
@@ -114,6 +115,10 @@
 
         // Move bomb and update score
         function moveBomb() {
+              if (!timerStarted) {
+            startTimer(); // Start the timer when the bomb is clicked for the first time
+            timerStarted = true; // Set the flag to prevent starting the timer again
+        }
              if (timeLeft <= 0) return; // Stop interaction after time ends
             score++;
             updateScoreboard();
@@ -152,8 +157,7 @@
         const { x, y } = getRandomPosition();
         bomb.style.left = `${x}px`;
         bomb.style.top = `${y}px`;
-        updateScoreboard();
-        startTimer();
+        updateScoreboard(); 
     </script>
 </body>
 </html>
