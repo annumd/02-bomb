@@ -30,7 +30,7 @@
             text-align: center;
         }
 
-        p {
+         p {
             font-size: 1.2rem;
             margin: 0;
             margin-top: 0.5rem;
@@ -42,7 +42,7 @@
             text-align: center;
         }
 
-        #scoreboard {
+         #scoreboard {
             font-size: 1.5rem;
             font-weight: bold;
             position: absolute;
@@ -71,7 +71,7 @@
             }
         }
 
-        #safe-zone {
+         #safe-zone {
             position: relative;
             display: flex;
             flex-direction: column;
@@ -83,12 +83,12 @@
     </style>
 </head>
 <body>
-    <div id="safe-zone">
+     <div id="safe-zone">
         <h1>BOMB</h1>
         <p>Click on the bomb to increase your score. Can you beat the leaderboard?</p>
         <div id="bomb">💣</div>
         <div id="scoreboard">Score: 0 | Time Left: 30</div>
-    </div>
+     </div>
 
     <script>
         const bomb = document.getElementById('bomb');
@@ -101,7 +101,7 @@
 
         // Update scoreboard
         function updateScoreboard() {
-            scoreboard.innerText = `Score: ${score} | Time Left: ${timeLeft}`;
+            scoreboard.innerText = Score: ${score} | Time Left: ${timeLeft};
         }
 
         // Get random position for the bomb
@@ -115,11 +115,11 @@
 
         // Move bomb and update score
         function moveBomb() {
-            if (!timerStarted) {
-                startTimer(); // Start the timer when the bomb is clicked for the first time
-                timerStarted = true; // Set the flag to prevent starting the timer again
-            }
-            if (timeLeft <= 0) return; // Stop interaction after time ends
+              if (!timerStarted) {
+            startTimer(); // Start the timer when the bomb is clicked for the first time
+            timerStarted = true; // Set the flag to prevent starting the timer again
+        }
+             if (timeLeft <= 0) return; // Stop interaction after time ends
             score++;
             updateScoreboard();
 
@@ -127,8 +127,8 @@
             explosion.innerHTML = '💥';
             explosion.style.position = 'absolute';
             explosion.style.fontSize = '4rem';
-            explosion.style.left = `${bomb.offsetLeft}px`;
-            explosion.style.top = `${bomb.offsetTop}px`;
+            explosion.style.left = ${bomb.offsetLeft}px;
+            explosion.style.top = ${bomb.offsetTop}px;
             document.body.appendChild(explosion);
 
             setTimeout(() => {
@@ -136,8 +136,8 @@
             }, 500); // Remove explosion after 500ms
 
             const { x, y } = getRandomPosition();
-            bomb.style.left = `${x}px`;
-            bomb.style.top = `${y}px`;
+            bomb.style.left = ${x}px;
+            bomb.style.top = ${y}px;
         }
 
         // Timer countdown
@@ -147,18 +147,18 @@
                 updateScoreboard();
                 if (timeLeft <= 0) {
                     clearInterval(timer);
-                    alert(`Time's up! Your final score is: ${score}`);
+                    alert(Time's up! Your final score is: ${score});
                 }
             }, 1000);
         }
-
         bomb.addEventListener('click', moveBomb);
 
         // Initial random position
         const { x, y } = getRandomPosition();
-        bomb.style.left = `${x}px`;
-        bomb.style.top = `${y}px`;
+        bomb.style.left = ${x}px;
+        bomb.style.top = ${y}px;
         updateScoreboard(); 
     </script>
 </body>
 </html>
+           
