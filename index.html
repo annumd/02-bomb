@@ -6,7 +6,7 @@
     <title>BOMB</title>
     <style>
         body {
-            background-color: #ffc0cb; /* Baby pink */
+            background-color: #d94b63; /* Baby pink */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -25,28 +25,13 @@
             text-transform: uppercase; /* Make text capitalized */
             position: absolute;
             top: 70%;
-            left: 50%;
+            left: 70%;
             transform: translate(-50%, -70%); /* Center and slightly adjust upwards */
             text-align: center;
             animation: popIn 2s ease-in-out forwards; /* Pop-in effect */
         }
 
-        /* Animation for popping the text into the screen */
-        @keyframes popIn {
-            0% {
-                transform: scale(0) translateY(-100px);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(3) translateY(0);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1) translateY(0);
-                opacity: 1;
-            }
-        }
-
+        
         p {
             font-size: 1.2rem;
             margin: 0;
@@ -56,7 +41,7 @@
             top: 55%;
             left: 50%;
             transform: translate(-50%, -50%);
-            text-align: center;
+            text-align: absolute;
         }
 
         #scoreboard {
@@ -76,18 +61,7 @@
             animation: pop 0.3s ease-in-out;
         }
 
-        /* Animation for bomb */
-        @keyframes pop {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.5);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
+       
 
         #safe-zone {
             position: relative;
@@ -111,8 +85,7 @@
 <body>
     <div id="safe-zone" class="hide">
         <h1>BOMB</h1>
-        <p>Click on the bomb.</p>
-        <p>Can you beat the leaderboard?</p>
+        <p>Click on the bomb. Can you beat the leaderboard?</p>
         <div id="bomb">💣</div>
         <div id="scoreboard">Score: 0 | Time Left: 30</div>
     </div>
